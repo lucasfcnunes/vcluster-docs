@@ -9,18 +9,15 @@ There are two main types of virtual clusters based on how they're deployed: plat
 
 ## Platform-Deployed Virtual Clusters
 
-These are virtual clusters that are deployed and fully managed through our platform. They benefit from the platform's complete set of management features and automated lifecycle management.
+These are virtual clusters that are deployed and fully managed through our
+platform, regardless if they are deployed via the UI or CLI. They benefit from the platform's complete set of management features and automated lifecycle management.
 
 :::info Characteristics
-- Identified by `external: false` in `VirtualClusterInstance` CR
 - Deployment methods:
     - Platform UI
     - vCluster CLI (when authenticated to Platform)
-    - `vcluster platform create vcluster` command
-    - `vcluster create <name> --driver platform` command
-- `external: false` is set automatically when using platform deployment methods
 - Full platform lifecycle management and reconciliation
-- Complete access to platform-specific features and tooling
+- Complete access to platform-specific features
 :::
 
 Platform-deployed clusters provide an integrated experience with centralized management and full platform feature utilization.
@@ -32,7 +29,6 @@ These virtual clusters are initially deployed outside of our platform, using too
 :::info Characteristics
 - Deployed using external tools (e.g., ArgoCD, CAPI)
 - Deployed using `vcluster create <name>` command (if driver helm is active)
-- Deployed using `vcluster create <name> --driver helm`
 - Deployed using `helm install vcluster ...`
 - Added to the platform using `vcluster platform add vcluster` command
 - Platform won't manage it (perform reconciliation)
